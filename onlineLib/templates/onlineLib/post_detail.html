@@ -1,0 +1,18 @@
+{% extends "onlineLib/base.html" %}
+
+{% block content %}
+    <div style="border-style: solid; border=width: medium; border-color: grey; border-radius: 10px; margin-top: 15px; padding: 10px;">
+      <ol> {{ object.book_name }} </ol>
+      <ol> {{ object.author }} </ol>
+      <ol> {{ object.description }} </ol>
+      <ol> {{ object.current_holder }} </ol>
+      <ol> {{ object.date_posted }} </ol>
+    </div>
+    {% if object.current_holder == user %}
+       <div>
+         <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+         <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+       </div>
+    {% endif %}
+
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends "onlineLib/base.html" %}
+
+{% block content %}
+  {% for posts in posts %}
+    <div style="border-style: solid; border=width: medium; border-color: grey; border-radius: 10px; margin-top: 15px; padding: 10px;">
+      <ol> <a href="{% url 'post-detail' posts.id %}"> {{ posts.book_name }} </a> </ol>
+      <ol> {{ posts.author }} </ol>
+      <ol> {{ posts.description }} </ol>
+      <ol> {{ posts.current_holder }} </ol>
+      <ol> {{ posts.date_posted }} </ol>
+    </div>
+  {% endfor %}
+{% endblock content %}

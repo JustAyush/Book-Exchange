@@ -1,0 +1,18 @@
+{% extends "onlineLib/base.html" %}
+
+{% block content %}
+
+  <img class="rounded-circle account-img" style="width:80px; height: 80px;" src="{{ user.dashboard.image.url }}">
+  <h2 class="account-heading">{{ user.username }}</h2>
+  <p class="text-secondary">{{ user.email }}</p>
+
+  <form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+    {{ user_update.as_p }}
+    {{ dashboard_update.as_p }}
+
+    <button type="submit" class="btn-primary"> Update </button>
+  </form>
+
+{% endblock content %}
