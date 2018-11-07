@@ -7,7 +7,7 @@ class Dashboard(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
-    def save(self):
+    def save(self, **kwargs):
         super().save()
 
         img = Image.open(self.image.path)

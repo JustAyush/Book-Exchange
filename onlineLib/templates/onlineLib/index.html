@@ -3,6 +3,7 @@
 {% block content %}
   {% for posts in posts %}
     <div style="border-style: solid; border=width: medium; border-color: grey; border-radius: 10px; margin-top: 15px; padding: 10px;">
+      <img style="width:150px; height: 200px;" src="{{ posts.image.url }}">
       <ol> <a href="{% url 'post-detail' posts.id %}"> {{ posts.book_name }} </a> </ol>
       <ol> {{ posts.author }} </ol>
       <ol> {{ posts.description }} </ol>
