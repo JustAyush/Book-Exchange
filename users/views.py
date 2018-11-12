@@ -1,19 +1,11 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from .forms import UserCreatedForm
 from .forms import UserUpdateForm, DashboardUpdateForm
+from django.contrib.auth.views import PasswordResetView
+from django.urls import reverse_lazy
+from . import forms
 
 # Create your views here.
 
-def register(request):
-    if request.method == 'POST':
-        form = UserCreatedForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login');
-    else:
-        form = UserCreatedForm()
-    return render(request, 'users/register.html', {'form': form})
 
 def dashboard(request):
     if request.method == 'POST':
